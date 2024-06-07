@@ -31,6 +31,9 @@ section, summary, time, mark, audio, video {
 	direction: rtl;
         
 }
+h3{
+	font-family: B Lotus !important;
+}
 .major {
 	/* background-color: aqua; */
 	font-family: B Lotus;
