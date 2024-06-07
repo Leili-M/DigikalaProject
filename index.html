@@ -4,6 +4,16 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<style type="text/css">
+	@font-face {
+		font-family: B Lotus;
+		src: url("assets/css/B-Nazanin-Bold/B-Nazanin-Bold/B\ Nazanin\ Bold_0.ttf");
+	}
+	*{
+	  font-family: B Lotus;
+		
+	}
+	</style>
 <html>
 	<head>
 		<title>Digikala Project</title>
@@ -54,12 +64,21 @@
 							</article>
 
 						<!-- Work -->
-							<article id="work">
-								<h2 class="major">فروش</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
-								<table class="table-fill">
+							<article id="work" style="width: 1500px; height:3580px; font-size : 20px">
+								<h2 class="major" style="text-align: center; font-family: B Lotus;width: 100%; font-size: 30px;">فروش</h2>
+								<span class="image main" style="text-align: center;"><img src="images/saleImage.png"  alt="" style="width: 600px; margin-right: 370px; height: 400px;" /></span>
+								<p>در این پروژه، یکی از چالش‌های برجسته، دسترسی نداشتن به داده‌های دقیق مربوط به فروش کالا بود. ما برای غلبه بر این مانع، به‌طور تقریبی میزان فروش را محاسبه نمودیم. در این بخش، از داده‌های موجود در فایل‌های نظرات، تخمین‌هایی در خصوص فروش هر دسته‌بندی و محصولی در هر دسته‌بندی انجام شده است.</p>
+								<p><b>روش کار:</b> ابتدا داده‌ها مربوط به کالاها را بر اساس زیردسته‌بندی‌ها فیلتر کردیم و دسته‌بندی "زیبایی" را به‌عنوان حوزه‌ی مورد بررسی انتخاب کردیم.
+									در این حوزه، دسته‌بندی‌های زیر مورد تحلیل قرار گرفتند: <blockquote>بهداشت و زیبایی ناخن, آرایش مو, بهداشت و مراقبت بدن, مراقبت پوست, شامپو و مراقبت مو, آرایش چشم, ضد تعریق, برس‌ها و تجهیزات آرایشی, اصلاح موی صورت, لوازم اصلاح مو, اسپری, لوازم اصلاح مو, آرایش ابرو, بادی اسپلش, ابزار مراقبت از پوست, آرایش صورت, صابون شستشو, آرایش لب, ابزار مراقبت پا, اصلاح موی گوش، بینی و ابرو</blockquote></p>
+									<p>سپس، در هر دسته‌بندی، کالاها بر اساس دسته‌بندی فرعی دیگر مورد ارزیابی قرار گرفتند. برای تخمین میزان فروش هر کالا و هر دسته‌بندی، از تعداد نظرات ثبت‌شده برای هر کالا در فایل نظرات استفاده شده است. بر اساس آمار جهانی، 12 درصد از خریداران نظر خود را ثبت می‌کنند و این موضوع توسط نظرسنجی‌هایی در پلتفرم‌های مختلف نظیر Reddit تایید شده است که حتی در مورد پلتفرم‌های کوچکتر نیز، آمار مشابهی به دست آمده است.
+
+										همچنین بر اساس گزارش‌های سالانه دیجی‌کالا، 13 درصد از خریداران در نظرسنجی‌های پیامکی شرکت کرده‌اند که این امر به ما اطمینان بیشتری برای انتخاب این شاخص می‌دهد.</p>
+										<div style="text-align: center;"><img src="images/NPS_Digikala.png" style="width: 90%; right: 77px;border-radius: 2.5rem;top:1240px"></div>
+										<p>در این تحلیل، تنها نظراتی در نظر گرفته شده‌اند که ویژگی is_buyer آن‌ها به صورت True بوده است. در نتیجه، با استفاده از نسبت بدست آمده، مقدار تقریبی فروش هر کالا محاسبه شده است. نتایج حاصل از تاثیر ضریب مشارکت کاربران:</p>
+										<div style="text-align: center;"><img src="images/C1.png" style="width: 70%;height:700px;right: 80px;border-radius: 2.5rem; top: 800px;"></div>
+										<div style="width: 80%;margin: 30px; height: 3px;background-color: #686D76;margin-right: 150px;"></div>
+										<div style="text-align: center;"><img src="images/C2.png" style="width: 70%;height:700px;right: 80px;border-radius: 2.5rem; top: 800px;"></div>
+								<!-- <table class="table-fill">
 									<thead>
 									<tr>
 									<th class="text-left">Month</th>
@@ -88,7 +107,7 @@
 									<td class="text-left">$ 98,000.00</td>
 									</tr>
 									</tbody>
-									</table>
+									</table> -->
 							
 							</article>
 

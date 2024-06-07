@@ -32,8 +32,11 @@ section, summary, time, mark, audio, video {
         
 }
 .major {
-	background-color: aqua;
+	/* background-color: aqua; */
 	font-family: B Lotus;
+	text-align: center;
+	width: 100%;
+
 }
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
