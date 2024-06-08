@@ -10,7 +10,7 @@
 		src: url("assets/css/B-Nazanin-Bold/B-Nazanin-Bold/B\ Nazanin\ Bold_0.ttf");
 	}
 	*{
-	  font-family: B Lotus;
+	  font-family: B Lotus !important; 
 		
 	}
 	</style>
@@ -33,9 +33,9 @@
 						<div class="logo">
 							<span class="icon" style="font-size: 30px; color: black;">📈</span>
 						</div>
-						<div class="content" style="color: #003C43;">
+						<div class="content" style="color: #003C43; font-family: B Lotus !important;">
 							
-							<div class="inner">
+							<div class="inner" style="font-family: B Lotus !important;">
 								<h1 style="color: #474F7A; font-family: B Lotus !important; font-size: 30px; font-weight: bold;background: #0C158B;
 background: linear-gradient(to right, #0C158B 10%, #FF6561 97%);
 								-webkit-background-clip: text;
@@ -98,15 +98,68 @@ background: linear-gradient(to right, #0C158B 10%, #FF6561 97%);
 						<!-- About -->
 							<article id="about"  style="width: 90%;">
 								<h2 class="major" style="width: 100%; text-align: center;">رضایت</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<span class="image main"><img src="images/satisfaction.png" alt="" style="width: 60%; margin-right: 250px;" /></span>
+								<p style="font-family: B Lotus; font-size: 18px;">در این بخش به دنبال محاسبه میزان رضایت مشتریان از دسته بندی مختلف هستیم.به این منظور در ابتدا داده هایی که پیش تر ذکر شده اند نگه داشته شده و pre processing  جهت تبدیل تاریخ ها به میلادی و موارد مشابه انجام داده ایم. در ابتدای کار برای بررسی تطابق با قسمت قبلی تعداد کامنت های هر زیر دسته را در نمودار زیر آورده ایم :</p>
+								<div style="text-align: center;"><img src="./images/charts/comment-count-category-2.png" alt="" style="width: 70%;"></div>
+								<p style="font-family: B Lotus; font-size: 18px;">با بررسی اعداد و تایید تشابه نتایج، در مرحله بعد به ساده ترین روش میزان رضایت محوصلات را حساب می کنیم. این قسمت شامل ضرب مقدار rate  در ستون های مربوط به کالاها در rate-count می باشد. به این ترتیب برای ترکیبی از category 1  و category 2  یک میانگین وزن دار از امتیاز آن ها به صورت خام از 0 تا 100 بدست می آوریم. برای انسجام تایج خود آن ها را به . تا 10 نظیر می کنیم.</p>
+								<div style="text-align: center;"><img src="./images/charts/product-rank-category-2.png" alt="" style="width: 70%;"></div>
+								<p>با توجه به اینکه ایده اصلی ما به دست آوردن رضایت از روی کامنت های مربوط به هر محصول است باید سراغ این داده ها نیز برویم.هدف در این بخش این است که از تکنیک های مربوط به پردازش زبان طبیعی مانند TF-IDF  و یا  Tokenization  استفاده نکنیم و از مدل های زبانی بزرگ نیز کمک نگیریم.
+									به همین دلیل سعی می کنیم با استفاده از دیدگاهی که نسبت به داده ها داریم این کمبود را تا حد مناسبی جبران کنیم.در شروغ این فرض را می کنیم که کامنت ها ارزش یکسانی ندارند. در واقع کامنتی که به تفصیل در مورد نکات مثبت و منفی یک محصول صحبت کرده، به آن rate  داده و تعداد لایک های زیادی دارد ، ارزشمند تر از کامنتی است که تعداد کمی کلمه داشته و بازخوردی ندارد.به همین علت سعی می کنیم feature  های مختلف را به ترتیب بررسی کنیم. در ابتدا طول کامنت ها را بررسی می کنیم . با توجه به قسمتی از abstract  یک مقاله که در زیر آمده است می دانیم توزیع طول کامنت هایی که کاربران یک سیستم برای آن می گذارند بسیار مشابه به توزیع lognormal  است. 
+									</p>
+									<div style="text-align: center; border : 8px solid #2e3034 ;border-radius: 16px;margin-bottom: 20px;background-color: #616168;" >We found that despite differences in the forum language, the discussed topics and user emotions, the comment length distributions are very regular and described by the lognormal form with a very high precision.  
+										<p>obkowicz, P., Thelwall, M., Buckley, K. et al. Lognormal distributions of user post lengths in Internet discussions - a consequence of the Weber-Fechner law?. EPJ Data Sci. 2, 2 (2013). <button style="margin-top: 5px; background-color: transparent; color : darkred"><a href="https://doi.org/10.1140/epjds14" style="text-decoration: none;">visit</a></button></p></div>
+									<p>
+										لذا سعی می کنیم پارامتر های این توزیع را با استفاده از scipy.stats   پیدا کنیم. در ادامه مشاهده می کنیم که پارامتر های یافت شده داده ها را به خوبی توصیف می کنند.
+										</p>
+										<div style="text-align: center;"><img src="./images/charts/comment-length-histogram.png" alt="" style="width: 70%;"></div>
+
+
+										<p>با توجه به این موضوع تصمیم گرفتیم به کامنت هایی با طول بیشتر وزن بیشتری بدهیم اما این وزن با طول رابطه خطی ندارد بلکه به صورت لگاریتم بر مبنای ده تعداد کاراکتر های کامنت تعریف می شود.
+											در سایر موارد نیز در مورد لایک ها و دیسلایک های یک کامنت ، وضعیت recommendation_status   و همچنین لیست advantages    و  disadvantages هرکدام یک وزن خاص به اهمیت کامنت اضافه می کنند که رابطه آن در زیر نشان داده شده است:
+											</p>
+											<div style="text-align: left; border : 8px solid #2e3034 ;border-radius: 16px;margin-bottom: 20px;background-color: #616168; direction: ltr;" ><ul style="direction: ltr; text-decoration: none; padding-left: 32px; ">The importance weight of each comment is calculated as follows: 
+												<li style="direction: ltr;">Comments get 1 initial point.</li>
+												<li style="direction: ltr;">Add the `log10` of comment length.</li>
+												<li style="direction: ltr;">Having rating adds 1 point.</li>
+												<li style="direction: ltr;">Per each advantage or disadvantage 0.2 point is added.</li>
+												<li style="direction: ltr;">Available recommendation status adds 0.5 point.</li>
+												<li style="direction: ltr;">Each likes or dislike gives 0.2 point validation.</li>
+												<li style="direction: ltr;">Not being a buyer subtracts 1 point.</li>
+											</ul></div>
+												باید دقت شود که این رابطه یک رابطه  اکتشافی است که ما تنها با هدف وزن دهی کامنت ها آن را به وجود آوردیم و مختص به داده های دیجی کالاست.بدیهی است با توجه به تفاوت هایی که سایت های مختلف با هم دارند، نحوه به دست آورن تغییر خواهد کرد.اما در بدست آوردن این مقادیر سعی شده به توزیع مربوط به هرکدام از این موارد دقت شود و پس از آن ضرایب انتخاب شوند.
+												</p>
+												<p>پس از این موضوع نوبت به تعیین ارزش کامنت است.برای آن با توجه به اینکه از تکنیک های NLP   استفاده نمی کنیم، تصمیم گرفتیم دو پارامتری که کاربر به صورت مستقیم به کالا نمره می دهد را در نظر بگیریم. این دو پارامتر rate   و  recommendation_status  هستد.البته از آنجایی که مقادیر هر یک از این دو برای بعضی از سطر های داده نامشخص و یا تعیین نشده هستند با استفاده از رابطه زیر آن را تعیین می کنیم.این رابطه در نهایت به ما عددی از 0 تا 10 را به عنوان میزان رضایت فرد می دهد.</p>
+												<div style="text-align: left; border : 8px solid #2e3034 ;border-radius: 16px;margin-bottom: 20px;background-color: #616168; direction: ltr;" ><ul style="direction: ltr; text-decoration: none; padding-left: 32px; ">The score of each comment is calculated as follows:  
+													<li style="direction: ltr;">If rate and recommendation_status are both available, the score is ((rate) + ((recommendation_status + 1) * 3)) * (10 / 8).</li>
+													<li style="direction: ltr;">If only rate is available, the score is (rate * 2)</li>
+													<li style="direction: ltr;">If only recommendation_status is available, the score is (recommendation_status + 1) * 5</li>
+												
+												</ul></div>
+												<p>
+													اکنون با بدست آوردن وزن هر کامنت و همچنین ارزش گذاری آن می توانیم درجه رضایت افراد از محصولات یک دسته را بدست آوریم. با محاسبه میانگین وزن دار نتایج زیر بدست آمده اند:
+													</p>
+													<div style="text-align: center;"><img src="./images/charts/score-product-rank-category-2.png" alt="" style="width: 70%;"></div>
+													<p>
+														Score  نتیجه مربوط به امتیازی است که از تحلیل کامنت ها به دست آوردیم و Product Rank  امتیازی است که صرفا از دو ستون داده های  product بدست آمده است.مشاهده می شود که دسته بندی های مختلف تقریبا روی یک خط قرار دارند که نشان از تطبیق نسبی این دو نتیجه می دهد.  
+														</p>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact" style="width: 90%;">
 								<h2 class="major" style="width: 100%; text-align: center;">نتیجه</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<span class="image main"><img src="images/the-best-product-removebg-preview.png" style="width: 40%; margin-right: 350px;" alt="" /></span>
+								<p>برای نتیجه گیری باید بتوانیم میزان فروش هر دسته را با میزان رضایت آن ترکیب کنیم. در این ترکیب بندی دسته ای ایده آل ما است که فروش بالا و رضایت نسبی پایینی دارد، چرا که نشان می دهد این محصول برای افراد جامعه ضروری است اما در عین حال کمبود برای یک محصول با کیفیت در این دسته احساس می شود.</p>
+
+								<p>همچنین باید توجه داشته باشیم که فروش به دو صورت قابل نمایش است.یکی تعداد واحد های فروحته شده از دسته های یک محصول و دیگری میزان فروش به تومان یا ریال.برای بررسی این موارد کنار یکدیگر از متدهای مخالق مانند رسم نمودار t_SNE  برای کاهش ابعاد ویژگی هایی که از هر دو سمت داشتیم و k-means  برای خوشه بندی استفاده کردیم که نتایج زیر بدست آمده اند:</p>
+								<p>کاهش ابعاد ویژگی هایی که از هر دو سمت داشتیم و k-means  برای خوشه بندی استفاده کردیم که نتایج زیر بدست آمده اند:
+									</p>
+									<div style="text-align: center; margin-top: 15px; margin-bottom: 35px;"><img src="./images/charts/tsne-kmeans.png" alt="" style="width: 70%;"></div>
+									<div style="text-align: center; margin-top: 15px; margin-bottom: 35px;"><img src="./images/charts/average-rank-sales.png" alt="" style="width: 70%;"></div>
+									<div style="text-align: center; margin-top: 15px; margin-bottom: 35px;"><img src="./images/charts/average-rank-sales-price.png" alt="" style="width: 70%;"></div>
+									<div style="text-align: center; margin-top: 15px; margin-bottom: 35px;"><img src="./images/charts/average-rank-market-cap.png" alt="" style="width: 70%;"></div>
+
+
+								<p>نهایتا با تحلیل میزان فروش ضربدر میانگین قیمت محصولات دسته و رسم آن در کنار میانگین امتیازی که از product rank   و score   بدست آمد به نمودار بالا می رسیم.با توجه به Net Promoter Score  که یک شاخص برای میزان رضایت از یک محصول است دسته هایی که در امتیاز بالای 8.5  را کسب کرده اند احتمالا بازار هایی هستند که شرکت های معتبر و با تجربه ای در آن فعالیت می کنند و به این ترتیب شرایط ورود به این بازارها و تولید این محصولات سخت است.در مورد بقیه دسته ها تصمیم گیری بر اساس عوامل مختلفی مانند اندازه شرکت ما و بودجه انجام می شود. برای مثال برای یک شرکت دانش بنیان کوچک ورود به بازار هایی که Market cap  پایین تر داشته اما سطح رضایت پایین تری نیز دارند مناسب تر است چرا گه می تانند راحت تر سهم بیشتری از بازار را تصاحب کنند.اما در مقابل ممکن است برای شرکت بزرگ بهداشتی ورود به این بازار های کوچک صرفه اقتصادی نداشته باشد و این شرکت ها ترجیح دهند وارد بازار رقابتی تر اما با سود بیشتر شوند.</p>
 								
 							</article>
 
